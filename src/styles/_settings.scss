@@ -1,0 +1,37 @@
+//colors
+$primary-color: #e8833a;
+$seat-selected: #8dd7cf;
+$seat-available: #c3cfd9;
+$seat-unavailable: #fbe192;
+
+$bg--light: #f5f4f3;
+$bg--dark--top: #272b38;
+$bg--dark--bottom: #212631;
+$bg--dark: linear-gradient(180deg, $bg--dark--top 0%, $bg--dark--bottom 100%);
+
+$text--light: #242d30;
+$text--dark: #e8e4e0;
+
+$hover--light: transparentize(#b45139, 0.9);
+$hover--dark: transparentize(#fff, 0.9);
+
+$border--light: darken(lighten($bg--light, 1%), 10%);
+$border--dark: lighten($bg--dark--top, 10%);
+
+.theme-dark {
+	background: $bg--dark;
+	color: $text--dark;
+}
+
+.theme-light {
+	background-color: $bg--light;
+	color: $text--light;
+}
+
+//mixins
+@mixin seat($color: #c3cfd9) {
+	background: $color;
+	border: 1px solid darken($color, 30);
+	border-radius: 50%;
+	color: #000;
+}
