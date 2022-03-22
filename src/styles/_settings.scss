@@ -4,6 +4,7 @@ $seat-selected: #8dd7cf;
 $seat-available: #c3cfd9;
 $seat-unavailable: #fbe192;
 
+$bg--desktop: hsl(260, 18%, 10%);
 $bg--light: #f5f4f3;
 $bg--dark--top: #272b38;
 $bg--dark--bottom: #212631;
@@ -18,17 +19,33 @@ $hover--dark: transparentize(#fff, 0.9);
 $border--light: darken(lighten($bg--light, 1%), 10%);
 $border--dark: lighten($bg--dark--top, 10%);
 
-.theme-dark {
-	background: $bg--dark;
-	color: $text--dark;
-}
-
-.theme-light {
-	background-color: $bg--light;
-	color: $text--light;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+$font-family: 'Roboto', sans-serif;
 
 //mixins
+
+@mixin w-h($w: 100%, $h: 100%) {
+	width: $w;
+	height: $h;
+}
+
+@mixin flex-center() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin app-base() {
+	width: clamp(100px, 100vw, 450px);
+	height: clamp(100px, 100vh, 810px);
+	padding: 1vh 1vw;
+
+	@media (min-width: 430px) {
+		border-radius: 15px;
+		border: 1px solid $border--dark;
+	}
+}
+
 @mixin seat($color: #c3cfd9) {
 	background: $color;
 	border: 1px solid darken($color, 30);

@@ -1,8 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home/Home';
-import Movie from './components/Movie/Movie';
-import Session from './components/Session/Session';
-import Success from './components/Success/Success';
+import Home from '../Home/Home';
+import Movie from '../Movie/Movie';
+import Session from '../Session/Session';
+import Success from '../Success/Success';
+
+import './App.scss';
 
 function App() {
 	return (

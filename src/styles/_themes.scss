@@ -1,0 +1,11 @@
+@use './settings' as color;
+
+.theme-dark {
+	background: color.$bg--dark;
+	color: color.$text--dark;
+}
+
+.theme-light {
+	background-color: color.$bg--light;
+	color: color.$text--light;
+}
