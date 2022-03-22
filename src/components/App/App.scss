@@ -1,5 +1,24 @@
 @use '../../styles/settings' as _;
+@use '../../styles/themes';
 
 .App {
-	@include _.app-base;
+	width: clamp(100px, 100vw, 450px);
+	height: clamp(100px, 100vh, 810px);
+	@include _.scroll-bar;
+
+	@media (min-width: 430px) {
+		border-radius: 15px;
+		border: none;
+		overflow-x: hidden;
+	}
+}
+
+header {
+	@include _.flex-center;
+	@include _.w-h(100%, 67px);
+	position: relative;
+
+	h1 {
+		color: _.$primary-orange;
+	}
 }

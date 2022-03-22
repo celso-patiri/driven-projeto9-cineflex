@@ -1,0 +1,37 @@
+@use '../../styles/settings' as _;
+
+.Home {
+	@include _.flex-center;
+	flex-direction: column;
+
+	h1 {
+		margin: 5vh 0;
+	}
+
+	.movies {
+		@include _.flex-center;
+		gap: 15px;
+		flex-wrap: wrap;
+	}
+
+	img {
+		@include _.w-h(129px, 213px);
+		border-radius: 12px;
+		box-shadow: -1px 0 3rem #000;
+		box-shadow: -1px 5px 10px rgba(0, 0, 0, 0.425);
+
+		transition: 0.2s;
+
+		&:hover {
+			transform: translateY(-1vh);
+			cursor: pointer;
+			// & ~ .movie {
+			// 	transform: translateX(10px);
+			// }
+		}
+
+		&:not(:first-child) {
+			margin-left: -10px;
+		}
+	}
+}

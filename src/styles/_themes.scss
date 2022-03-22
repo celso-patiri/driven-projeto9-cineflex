@@ -1,11 +1,19 @@
-@use './settings' as color;
+@use './settings' as _;
 
 .theme-dark {
-	background: color.$bg--dark;
-	color: color.$text--dark;
+	background: _.$bg--dark;
+	color: _.$text--dark;
 }
 
 .theme-light {
-	background-color: color.$bg--light;
-	color: color.$text--light;
+	background-color: _.$bg--light;
+	color: _.$text--light;
+}
+
+.header-dark {
+	background: lighten(_.$bg--dark, 10);
+}
+
+.header-light {
+	background: _.$bg--dark;
 }
