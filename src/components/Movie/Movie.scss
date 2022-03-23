@@ -1,0 +1,35 @@
+@use '../../styles/settings' as _;
+
+main.sessions {
+	@include _.flex($direction: column, $align: flex-start);
+	gap: 1vh;
+	margin: _.$header-heigth 0 15vh 0;
+
+	h1 {
+		align-self: center;
+	}
+
+	h3 {
+		margin: 1vh 1vw;
+	}
+
+	.session-buttons {
+		margin-left: 1vw;
+
+		button {
+			@include _.w-h(100px, 43px);
+			background-color: _.$primary-orange;
+			color: _.$text--dark;
+			font-size: 18px;
+			font-weight: 700;
+			margin: 1vh 5px;
+			border: none;
+			border-radius: 3px;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.02);
+			}
+		}
+	}
+}

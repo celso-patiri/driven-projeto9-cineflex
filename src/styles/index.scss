@@ -10,12 +10,13 @@
 
 h1 {
 	font-weight: 400;
+	margin: 5vh 0;
 }
 
 body {
 	@include _.w-h(100vw, 100vh);
 	@include _.flex-center;
-	background-color: _.$bg--desktop;
 	font-family: _.$font-family;
 	font-weight: 400;
+	background-color: _.$bg--desktop;
 }

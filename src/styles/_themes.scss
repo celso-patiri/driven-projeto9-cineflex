@@ -15,5 +15,5 @@
 }
 
 .header-light {
-	background: _.$bg--dark;
+	background: lighten(_.$bg--dark, 10);
 }

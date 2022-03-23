@@ -6,7 +6,6 @@ import Movie from '../Movie/Movie';
 import Session from '../Session/Session';
 import Success from '../Success/Success';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
-
 import './App.scss';
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/filme" element={<Movie />} />
+				<Route path="/filme/:id" element={<Movie />} />
 				<Route path="/sessao" element={<Session />} />
 				<Route path="/sucesso" element={<Success />} />
 			</Routes>
@@ -26,7 +25,7 @@ function App() {
 
 	function Header() {
 		return (
-			<header className={dark ? 'header-dark' : 'header-light'}>
+			<header>
 				<h1>CINEFLEX</h1>
 				<ThemeSwitch />
 			</header>

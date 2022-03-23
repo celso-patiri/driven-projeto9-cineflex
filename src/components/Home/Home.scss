@@ -3,10 +3,7 @@
 .Home {
 	@include _.flex-center;
 	flex-direction: column;
-
-	h1 {
-		margin: 5vh 0;
-	}
+	margin-top: _.$header-heigth;
 
 	.movies {
 		@include _.flex-center;
@@ -17,7 +14,6 @@
 	img {
 		@include _.w-h(129px, 213px);
 		border-radius: 12px;
-		box-shadow: -1px 0 3rem #000;
 		box-shadow: -1px 5px 10px rgba(0, 0, 0, 0.425);
 
 		transition: 0.2s;
