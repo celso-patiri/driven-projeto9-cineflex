@@ -3,6 +3,7 @@ $primary-orange: hsl(25, 84%, 52%);
 $seat-selected: #8dd7cf;
 $seat-available: #c3cfd9;
 $seat-unavailable: #fbe192;
+$sucess-green: #247a6b;
 
 $bg--desktop: hsl(260, 18%, 10%);
 $bg--light: #f5f4f3;
@@ -43,6 +44,16 @@ $font-family: 'Roboto', sans-serif;
 	align-items: $align;
 }
 
+@mixin main-button() {
+	background-color: $primary-orange;
+	color: $text--dark;
+	font-size: 18px;
+	font-weight: 700;
+	margin: 1vh 5px;
+	border: none;
+	border-radius: 3px;
+}
+
 @mixin scroll-bar() {
 	&::-webkit-scrollbar {
 		width: 10px;
@@ -63,6 +74,7 @@ $font-family: 'Roboto', sans-serif;
 
 @mixin seat($color: #c3cfd9) {
 	background: $color;
+	@include w-h(5vh, 5vh);
 	border: 1px solid darken($color, 30);
 	border-radius: 50%;
 	color: #000;

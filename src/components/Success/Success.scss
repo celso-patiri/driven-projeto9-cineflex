@@ -1,0 +1,15 @@
+@use '../../styles/settings' as _;
+
+.Success {
+	@include _.flex(column, $align: flex-start);
+	margin-top: _.$header-heigth;
+
+	h1 {
+		align-self: center;
+		color: _.$sucess-green;
+	}
+
+	.order-info {
+		margin: 2vh 3vw;
+	}
+}

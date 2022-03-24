@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App.jsx';
-
-import './styles/index.scss';
-
 import { BrowserRouter } from 'react-router-dom';
+import App from './components/App/App.jsx';
+import { OrderProvider } from './context/OrderContext.js';
 import { ThemeProvider } from './context/ThemeContext.js';
+import './styles/index.scss';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<ThemeProvider>
-				<App />
+				<OrderProvider>
+					<App />
+				</OrderProvider>
 			</ThemeProvider>
 		</BrowserRouter>
 	</React.StrictMode>,

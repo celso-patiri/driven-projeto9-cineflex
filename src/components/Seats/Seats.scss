@@ -1,5 +1,77 @@
 @use '../../styles/settings' as _;
 
 .Seats {
+	@include _.flex(column, $align: center);
 	margin-top: _.$header-heigth;
+	width: _.$app-width;
+
+	.seats-grid {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(10, 1fr);
+
+		button {
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.01);
+			}
+		}
+	}
+
+	button {
+		&.selected {
+			@include _.seat(_.$seat-selected);
+		}
+		&.available {
+			@include _.seat(_.$seat-available);
+		}
+		&.unavailable {
+			@include _.seat(_.$seat-unavailable);
+		}
+	}
+
+	.button-examples {
+		@include _.flex($justify: space-around);
+		gap: 2rem;
+		margin: 2vh 0;
+
+		div {
+			@include _.flex(column);
+		}
+
+		h4 {
+			font-weight: 400;
+			font-size: 14px;
+		}
+	}
+
+	.finish-order {
+		@include _.flex(column);
+		width: 80%;
+
+		p {
+			align-self: flex-start;
+		}
+
+		label {
+			width: 100%;
+		}
+
+		input {
+			@include _.w-h(100%, 7vh);
+			margin-bottom: 5px;
+			padding: 0 5px;
+			border: 1px solid _.$text--dark;
+			border-radius: 5px;
+
+			&.submit-form {
+				@include _.main-button;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.01);
+				}
+			}
+		}
+	}
 }

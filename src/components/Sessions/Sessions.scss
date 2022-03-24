@@ -17,14 +17,8 @@ main.sessions {
 		margin-left: 1vw;
 
 		button {
+			@include _.main-button;
 			@include _.w-h(100px, 43px);
-			background-color: _.$primary-orange;
-			color: _.$text--dark;
-			font-size: 18px;
-			font-weight: 700;
-			margin: 1vh 5px;
-			border: none;
-			border-radius: 3px;
 
 			&:hover {
 				cursor: pointer;
