@@ -1,6 +1,9 @@
+import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import OrderContext from '../../context/OrderContext';
+
+const URL = 'https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many';
 
 export default function FinishOrder({ reservedSeats, sessionInfo }) {
 	const [buyers, setBuyers] = useState([]);
@@ -46,7 +49,19 @@ export default function FinishOrder({ reservedSeats, sessionInfo }) {
 			seats: reservedSeatsInfo,
 		});
 
-		navigate('/sucesso');
+		axios
+			.post(URL, {
+				ids: reservedSeatsInfo.map((seat) => seat.id),
+				compradores: reservedSeatsInfo.map((seat) => {
+					return {
+						idAssento: seat.id,
+						nome: seat.name,
+						cpf: seat.cpf,
+					};
+				}),
+			})
+			.then(navigate('/sucesso'))
+			.catch((err) => console.error(err));
 	}
 }
 
