@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
-import './Home.scss';
+import './Movies.scss';
 
 const URL = 'https://mock-api.driven.com.br/api/v5/cineflex';
 
-export default function Home() {
+export default function Movies() {
 	const { dark } = useContext(ThemeContext);
 	const [movies, setMovies] = useState([]);
 
@@ -33,7 +33,7 @@ export default function Home() {
 
 function MovieCard({ id, posterURL }) {
 	return (
-		<Link to={`/filme/${id}`}>
+		<Link to={`/sessoes/${id}`}>
 			<img src={posterURL} alt="poster" className="movie" />
 		</Link>
 	);

@@ -19,31 +19,10 @@ header {
 	position: fixed;
 	z-index: 1;
 	background: lighten(_.$bg--dark, 10);
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
 
 	h1 {
 		color: _.$primary-orange;
-	}
-}
-
-footer {
-	height: 15vh;
-	width: _.$app-width;
-	display: flex;
-	align-items: center;
-	position: fixed;
-	bottom: 0;
-	background: lighten(_.$bg--dark, 10);
-	border-radius: 5px;
-
-	img {
-		height: 14vh;
-		border-radius: 12px;
-		border: 1px solid _.$bg--dark;
-		margin-left: 5px;
-		box-shadow: -1px 5px 10px rgba(0, 0, 0, 0.425);
-	}
-
-	h3 {
-		color: _.$text--dark;
 	}
 }

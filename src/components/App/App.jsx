@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
-import Home from '../Home/Home';
-import Movie from '../Movie/Movie';
-import Session from '../Session/Session';
+import Movies from '../Movies/Movies';
+import Seats from '../Seats/Seats';
+import Sessions from '../Sessions/Sessions';
 import Success from '../Success/Success';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import './App.scss';
@@ -15,9 +15,9 @@ function App() {
 		<div className={`App ${dark ? 'theme-dark' : 'theme-light'}`}>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/filme/:id" element={<Movie />} />
-				<Route path="/sessao" element={<Session />} />
+				<Route path="/" element={<Movies />} />
+				<Route path="/sessoes/:idFilme" element={<Sessions />} />
+				<Route path="/assentos/:idSessao" element={<Seats />} />
 				<Route path="/sucesso" element={<Success />} />
 			</Routes>
 		</div>
