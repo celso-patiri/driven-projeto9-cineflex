@@ -1,9 +1,16 @@
+
 <div align="center">
-  <a href="https://github.com/celso-patiri/driven-projeto9-cineflex">
+  
+ 
+  
+  <a href="https://celso-cineflex.netlify.app/">
     <img src="https://www.driven.com.br/wp-content/uploads/2021/11/logo-footer.svg" alt="Logo" width="100">
   </a>
 
 <h2 align="center">Cineflex</h2>
+  
+   [![wakatime](https://wakatime.com/badge/user/8a52c0fd-ec78-403a-81d0-07c674c564b3/project/bd99933e-c653-41d6-acfc-51dc8c53dd84.svg)](https://wakatime.com/badge/user/8a52c0fd-ec78-403a-81d0-07c674c564b3/project/bd99933e-c653-41d6-acfc-51dc8c53dd84)
+  
   <h3 align="center">
      Web Development Project
   </h3>
