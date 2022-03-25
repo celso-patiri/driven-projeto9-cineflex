@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IoMdArrowBack as Return } from 'react-icons/io';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
@@ -11,6 +11,11 @@ import './App.scss';
 
 function App() {
 	const { dark } = useContext(ThemeContext);
+	const [homeUrl, sethomeUrl] = useState(null);
+
+	useEffect(() => {
+		sethomeUrl(window.location.href);
+	}, []);
 
 	return (
 		<div className={`App ${dark ? 'theme-dark' : 'theme-light'}`}>
@@ -26,14 +31,18 @@ function App() {
 
 	function Header() {
 		const navigate = useNavigate();
-
 		return (
 			<header>
-				<Return className="Return" onClick={() => navigate(-1)} />
+				<ReturnButton navigate={navigate} />
 				<h1 onClick={() => navigate('/')}>CINEFLEX</h1>
 				<ThemeSwitch />
 			</header>
 		);
+	}
+
+	function ReturnButton({ navigate }) {
+		if (window.location.href === homeUrl) return '';
+		return <Return className="Return" onClick={() => navigate(-1)} />;
 	}
 }
 
