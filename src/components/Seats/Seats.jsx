@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
+import Footer from '../Footer/Footer';
 import FinishOrder from './FinishOrder';
 import SeatButton from './SeatButton';
 import './Seats.scss';
@@ -21,29 +22,29 @@ export default function Seats() {
 			.then((res) => setSessionInfo(res.data))
 			.catch((err) => console.error(err));
 	}, []);
-
+	console.log(sessionInfo);
+	if (!sessionInfo) return 'Loading...';
 	return (
 		<div className={`Seats ${dark ? 'theme-dark' : 'theme-light'}`}>
-			{sessionInfo ? (
-				<>
-					<h1 className="title">Selecione os assentos</h1>
-					<div className="seats-grid">
-						{sessionInfo.seats.map((seat) => (
-							<SeatButton
-								number={seat.name}
-								available={seat.isAvailable}
-								reserveSeat={reserveSeat}
-								id={seat.id}
-								key={seat.id}
-							/>
-						))}
-					</div>
-					<ButtonExamples />
-					<FinishOrder reservedSeats={reservedSeats} sessionInfo={sessionInfo} />
-				</>
-			) : (
-				'Loading...'
-			)}
+			<h1 className="title">Selecione os assentos</h1>
+			<div className="seats-grid">
+				{sessionInfo.seats.map((seat) => (
+					<SeatButton
+						number={seat.name}
+						available={seat.isAvailable}
+						reserveSeat={reserveSeat}
+						id={seat.id}
+						key={seat.id}
+					/>
+				))}
+			</div>
+			<ButtonExamples />
+			<FinishOrder reservedSeats={reservedSeats} sessionInfo={sessionInfo} />
+			<Footer
+				posterURL={sessionInfo.movie.posterURL}
+				title={sessionInfo.movie.title}
+				session={`${sessionInfo.day.weekday} - ${sessionInfo.name}`}
+			/>
 		</div>
 	);
 

@@ -1,7 +1,7 @@
 @use '../../styles/settings' as _;
 
 footer {
-	height: 15vh;
+	height: _.$footer-height;
 	width: _.$app-width;
 	display: flex;
 	align-items: center;
@@ -14,7 +14,8 @@ footer {
 		height: 14vh;
 		border-radius: 12px;
 		border: 1px solid _.$bg--dark;
-		margin-left: 5px;
+		margin: 0 5px;
+
 		box-shadow: -1px 5px 10px rgba(0, 0, 0, 0.425);
 	}
 

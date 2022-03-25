@@ -3,6 +3,7 @@
 .Seats {
 	@include _.flex(column, $align: center);
 	margin-top: _.$header-heigth;
+	margin-bottom: _.$footer-height;
 	width: _.$app-width;
 
 	button {
