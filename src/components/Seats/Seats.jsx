@@ -21,8 +21,8 @@ export default function Seats() {
 			.get(`${URL}/${idSessao}/seats`)
 			.then((res) => setSessionInfo(res.data))
 			.catch((err) => console.error(err));
-	}, []);
-	console.log(sessionInfo);
+	}, [idSessao]);
+
 	if (!sessionInfo) return 'Loading...';
 	return (
 		<div className={`Seats ${dark ? 'theme-dark' : 'theme-light'}`}>

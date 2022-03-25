@@ -20,7 +20,7 @@ export default function Sessions() {
 				setMovieInfo(res.data);
 			})
 			.catch((err) => console.error(err));
-	}, []);
+	}, [idFilme]);
 
 	return (
 		<main className={`sessions ${dark ? 'theme-dark' : 'theme-light'}`}>

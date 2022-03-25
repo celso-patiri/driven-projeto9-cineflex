@@ -15,12 +15,12 @@ export default function FinishOrder({ reservedSeats, sessionInfo }) {
 			reservedSeats.map((seat) => {
 				const buyer = buyers.find((it) => it.seatId === seat.id);
 				const cpf = buyer ? buyer.cpf : '';
-				const name = buyer ? buyer.name : '';
 
+				const name = buyer ? buyer.name : '';
 				return { seatId: seat.id, cpf: cpf, name: name };
 			})
 		);
-	}, [reservedSeats]);
+	}, [reservedSeats, buyers]);
 
 	if (reservedSeats.length === 0) return '';
 

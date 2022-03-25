@@ -13,8 +13,8 @@ export default function Success() {
 		if (!order) {
 			navigate('/');
 		}
-	}, []);
-	console.log(order);
+	}, [navigate, order]);
+
 	if (!order) return '';
 	return (
 		<div className={`Success ${dark ? 'theme-dark' : 'theme-light'}`}>
