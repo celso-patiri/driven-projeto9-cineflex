@@ -21,7 +21,7 @@ export default function Movies() {
 
 	return (
 		<div className={`Home ${dark ? 'theme-dark' : 'theme-light'}`}>
-			<h1>Selecione o filme</h1>
+			<h1 className="title">Selecione o filme</h1>
 			<div className="movies">
 				{movies.map((movie) => (
 					<MovieCard id={movie.id} posterURL={movie.posterURL} key={movie.id} />

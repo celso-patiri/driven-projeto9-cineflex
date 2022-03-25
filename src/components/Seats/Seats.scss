@@ -5,19 +5,6 @@
 	margin-top: _.$header-heigth;
 	width: _.$app-width;
 
-	.seats-grid {
-		display: grid;
-		gap: 10px;
-		grid-template-columns: repeat(10, 1fr);
-
-		button {
-			&:hover {
-				cursor: pointer;
-				transform: scale(1.01);
-			}
-		}
-	}
-
 	button {
 		&.selected {
 			@include _.seat(_.$seat-selected);
@@ -27,6 +14,19 @@
 		}
 		&.unavailable {
 			@include _.seat(_.$seat-unavailable);
+		}
+	}
+
+	.seats-grid {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(10, 1fr);
+
+		button {
+			&:not(.unavailable):hover {
+				cursor: pointer;
+				transform: scale(1.01);
+			}
 		}
 	}
 

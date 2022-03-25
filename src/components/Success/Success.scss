@@ -12,4 +12,26 @@
 	.order-info {
 		margin: 2vh 3vw;
 	}
+
+	button {
+		align-self: center;
+		@include _.main-button;
+		@include _.w-h(60%, 7vh);
+		margin-top: 5vh;
+
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.01);
+		}
+	}
+
+	.order-info-wrapper {
+		display: flex;
+
+		img {
+			@include _.w-h(129px, 213px);
+			border-radius: 12px;
+			box-shadow: -1px 5px 10px rgba(0, 0, 0, 0.425);
+		}
+	}
 }

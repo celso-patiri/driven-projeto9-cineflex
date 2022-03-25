@@ -24,7 +24,7 @@ export default function Sessions() {
 
 	return (
 		<main className={`sessions ${dark ? 'theme-dark' : 'theme-light'}`}>
-			<h1>Selecione o horário</h1>
+			<h1 className="title">Selecione o horário</h1>
 			{movieInfo.days.map((day) => (
 				<article key={day.id}>
 					<h3>{`${day.weekday} - ${day.date}`}</h3>

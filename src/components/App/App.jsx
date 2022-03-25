@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { IoMdArrowBack as Return } from 'react-icons/io';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
 import Movies from '../Movies/Movies';
 import Seats from '../Seats/Seats';
@@ -24,9 +25,12 @@ function App() {
 	);
 
 	function Header() {
+		const navigate = useNavigate();
+
 		return (
 			<header>
-				<h1>CINEFLEX</h1>
+				<Return className="Return" onClick={() => navigate(-1)} />
+				<h1 onClick={() => navigate('/')}>CINEFLEX</h1>
 				<ThemeSwitch />
 			</header>
 		);

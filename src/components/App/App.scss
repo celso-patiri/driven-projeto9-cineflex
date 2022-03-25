@@ -17,6 +17,7 @@ header {
 	@include _.flex-center;
 	@include _.w-h(_.$app-width, _.$header-heigth);
 	position: fixed;
+	top: 0;
 	z-index: 1;
 	background: lighten(_.$bg--dark, 10);
 	border-top-left-radius: 12px;
@@ -24,5 +25,24 @@ header {
 
 	h1 {
 		color: _.$primary-orange;
+
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.01);
+		}
+	}
+
+	.Return {
+		position: absolute;
+		left: 30px;
+		transform: scale(2);
+		color: darken(_.$text--dark, 20);
+		cursor: pointer;
+	}
+}
+
+@media (min-width: 400px) {
+	.title {
+		margin-top: 10vh;
 	}
 }

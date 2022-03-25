@@ -1,4 +1,26 @@
+@use '../../styles/settings' as _;
+
 .Switch {
 	position: absolute;
 	right: 30px;
+	cursor: pointer;
+	@include _.w-h(45px, 25px);
+	padding: 3px 5px;
+
+	@include _.flex($justify: space-between);
+	border-radius: 12px;
+	border: none;
+	background-color: _.$bg--dark;
+
+	.inactive {
+		color: darken(_.$seat-available, 50);
+	}
+
+	.moonActive {
+		color: _.$seat-available;
+	}
+
+	.sunActive {
+		color: _.$primary-orange;
+	}
 }

@@ -3,7 +3,13 @@ import { useState } from 'react';
 export default function SeatButton({ number, available, reserveSeat, id }) {
 	const [selected, setSelected] = useState(false);
 
-	if (!available) return <button className="unavailable">{number}</button>;
+	if (!available)
+		return (
+			<button className="unavailable" onClick={() => window.alert('Assento Indisponivel')}>
+				{number}
+			</button>
+		);
+
 	return (
 		<button
 			className={selected ? 'selected' : 'available'}

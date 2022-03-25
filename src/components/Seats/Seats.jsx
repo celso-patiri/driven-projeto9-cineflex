@@ -24,7 +24,7 @@ export default function Seats() {
 		<div className="Seats">
 			{sessionInfo ? (
 				<>
-					<h1>Selecione os assentos</h1>
+					<h1 className="title">Selecione os assentos</h1>
 					<div className="seats-grid">
 						{sessionInfo.seats.map((seat) => (
 							<SeatButton
