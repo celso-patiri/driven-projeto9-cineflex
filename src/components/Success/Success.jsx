@@ -35,8 +35,8 @@ export default function Success() {
 							return (
 								<div key={seat.toString() + index}>
 									<p>Assento {seat.number}</p>
-									<p>{seat.name}</p>
-									<p>{seat.cpf}</p>
+									<p>Nome: {seat.name}</p>
+									<p>CPF: {seat.cpf}</p>
 								</div>
 							);
 						})}

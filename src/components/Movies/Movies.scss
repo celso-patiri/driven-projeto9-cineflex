@@ -31,3 +31,14 @@
 		}
 	}
 }
+
+@media (min-width: 400px) {
+	.Home {
+		.movies {
+			gap: 8px;
+		}
+		img {
+			@include _.w-h(120px, 205px);
+		}
+	}
+}
