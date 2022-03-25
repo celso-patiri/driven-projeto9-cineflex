@@ -1,10 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import OrderContext from '../../context/OrderContext';
+import ThemeContext from '../../context/ThemeContext';
 import './Success.scss';
 
 export default function Success() {
 	const { order } = useContext(OrderContext);
+	const { dark } = useContext(ThemeContext);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -15,7 +17,7 @@ export default function Success() {
 	console.log(order);
 	if (!order) return '';
 	return (
-		<div className="Success">
+		<div className={`Success ${dark ? 'theme-dark' : 'theme-light'}`}>
 			<h1 className="title">Pedido feito com sucesso!</h1>
 			<div className="order-info-wrapper">
 				<div>

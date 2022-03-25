@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ThemeContext from '../../context/ThemeContext';
 import FinishOrder from './FinishOrder';
 import SeatButton from './SeatButton';
 import './Seats.scss';
@@ -10,6 +11,7 @@ const URL = 'https://mock-api.driven.com.br/api/v5/cineflex/showtimes';
 export default function Seats() {
 	const [sessionInfo, setSessionInfo] = useState(null);
 	const [reservedSeats, setReservedSeats] = useState([]);
+	const { dark } = useContext(ThemeContext);
 
 	const { idSessao } = useParams();
 
@@ -21,7 +23,7 @@ export default function Seats() {
 	}, []);
 
 	return (
-		<div className="Seats">
+		<div className={`Seats ${dark ? 'theme-dark' : 'theme-light'}`}>
 			{sessionInfo ? (
 				<>
 					<h1 className="title">Selecione os assentos</h1>
