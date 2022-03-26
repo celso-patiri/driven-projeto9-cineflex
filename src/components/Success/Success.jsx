@@ -34,7 +34,7 @@ export default function Success() {
 						{order.seats.map((seat, index) => {
 							return (
 								<div key={seat.toString() + index}>
-									<p>Assento {seat.number}</p>
+									<p>Assento {seat.seatNumber}</p>
 									<p>Nome: {seat.name}</p>
 									<p>CPF: {seat.cpf}</p>
 								</div>
