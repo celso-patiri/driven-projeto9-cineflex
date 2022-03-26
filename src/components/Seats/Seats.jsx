@@ -50,8 +50,8 @@ export default function Seats() {
 	);
 
 	function reserveSeat(id, number) {
-		if (reservedSeats.some((seat) => seat.id === id))
-			setReservedSeats(reservedSeats.filter((seat) => seat.id !== id));
+		const seatIsReserved = reservedSeats.some((seat) => seat.id === id);
+		if (seatIsReserved) setReservedSeats(reservedSeats.filter((seat) => seat.id !== id));
 		else setReservedSeats([...reservedSeats, { id: id, number: number }]);
 	}
 }
