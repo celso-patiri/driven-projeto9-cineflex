@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
 import Footer from '../Footer/Footer';
-import FinishOrder from './FinishOrderForm';
+import FinishOrderForm from './FinishOrderForm';
 import SeatButton from './SeatButton';
 import './Seats.scss';
 
@@ -24,6 +24,7 @@ export default function Seats() {
 	}, [idSessao]);
 
 	if (!sessionInfo) return 'Loading...';
+
 	return (
 		<div className={`Seats ${dark ? 'theme-dark' : 'theme-light'}`}>
 			<h1 className="title">Selecione os assentos</h1>
@@ -39,7 +40,7 @@ export default function Seats() {
 				))}
 			</div>
 			<ButtonExamples />
-			<FinishOrder reservedSeats={reservedSeats} sessionInfo={sessionInfo} />
+			<FinishOrderForm reservedSeats={reservedSeats} sessionInfo={sessionInfo} />
 			<Footer
 				posterURL={sessionInfo.movie.posterURL}
 				title={sessionInfo.movie.title}
