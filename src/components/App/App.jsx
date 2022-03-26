@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { IoMdArrowBack as Return } from 'react-icons/io';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { OrderProvider } from '../../context/OrderContext';
 import ThemeContext from '../../context/ThemeContext';
 import Movies from '../Movies/Movies';
 import Seats from '../Seats/Seats';
@@ -20,12 +21,14 @@ function App() {
 	return (
 		<div className={`App ${dark ? 'theme-dark' : 'theme-light'}`}>
 			<Header />
-			<Routes>
-				<Route path="/" element={<Movies />} />
-				<Route path="/sessoes/:idFilme" element={<Sessions />} />
-				<Route path="/assentos/:idSessao" element={<Seats />} />
-				<Route path="/sucesso" element={<Success />} />
-			</Routes>
+			<OrderProvider>
+				<Routes>
+					<Route path="/" element={<Movies />} />
+					<Route path="/sessoes/:idFilme" element={<Sessions />} />
+					<Route path="/assentos/:idSessao" element={<Seats />} />
+					<Route path="/sucesso" element={<Success />} />
+				</Routes>
+			</OrderProvider>
 		</div>
 	);
 
