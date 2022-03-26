@@ -6,41 +6,46 @@ import OrderContext from '../../context/OrderContext';
 const URL = 'https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many';
 
 export default function FinishOrder({ reservedSeats, sessionInfo }) {
-	const [buyers, setBuyers] = useState([]);
+	const [buyersInfo, setBuyersInfo] = useState([]);
 	const { setOrder } = useContext(OrderContext);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		setBuyers(
+		setBuyersInfo(
 			reservedSeats.map((seat) => {
-				const buyer = buyers.find((it) => it.seatId === seat.id);
+				const buyer = buyersInfo.find((buyerIt) => buyerIt.seatId === seat.id);
 				const cpf = buyer ? buyer.cpf : '';
-
 				const name = buyer ? buyer.name : '';
 				return { seatId: seat.id, cpf: cpf, name: name };
 			})
 		);
-	}, [reservedSeats, buyers]);
+	}, [reservedSeats]);
 
 	if (reservedSeats.length === 0) return '';
 
 	return (
 		<form className="finish-order" onSubmit={handleSubmit}>
 			{reservedSeats.map((seat) => (
-				<OrderInfoInput id={seat.id} buyers={buyers} setBuyers={setBuyers} key={seat.id} />
+				<BuyerInfoInput
+					id={seat.id}
+					buyers={buyersInfo}
+					setBuyers={setBuyersInfo}
+					key={seat.id}
+				/>
 			))}
-			<input className="submit-form" type="submit" value="Reservar assento(s)" />
+			<input value="Reservar assento(s)" className="submit-form" type="submit" />
 		</form>
 	);
 
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		const reservedSeatsInfo = reservedSeats.map((seat, index) => {
+		const reservedSeatsInfo = reservedSeats.map((seatInfo, index) => {
 			return {
-				...seat,
-				name: buyers[index].name,
-				cpf: buyers[index].cpf,
+				// ...seatInfo,
+				idAssento: seatInfo.id,
+				name: buyersInfo[index].name,
+				cpf: buyersInfo[index].cpf,
 			};
 		});
 
@@ -52,25 +57,25 @@ export default function FinishOrder({ reservedSeats, sessionInfo }) {
 		axios
 			.post(URL, {
 				ids: reservedSeatsInfo.map((seat) => seat.id),
-				compradores: reservedSeatsInfo.map((seat) => {
-					return {
-						idAssento: seat.id,
-						nome: seat.name,
-						cpf: seat.cpf,
-					};
-				}),
+				compradores: reservedSeatsInfo,
+				// compradores: reservedSeatsInfo.map((seat) => {
+				// 	return {
+				// 		idAssento: seat.id,
+				// 		nome: seat.name,
+				// 		cpf: seat.cpf,
+				// 	};
+				// }),
 			})
 			.then(navigate('/sucesso'))
 			.catch((err) => console.error(err));
 	}
 }
 
-function OrderInfoInput({ id, buyers, setBuyers }) {
+function BuyerInfoInput({ id, buyers, setBuyers }) {
 	function handleInputChange(event) {
-		const target = event.target;
-		const value = target.value;
+		const nameOrCpf = event.target;
 
-		buyers.find((buyer) => buyer.seatId === id)[target.name] = value;
+		buyers.find((buyer) => buyer.seatId === id)[nameOrCpf.name] = nameOrCpf.value;
 		setBuyers([...buyers]);
 	}
 

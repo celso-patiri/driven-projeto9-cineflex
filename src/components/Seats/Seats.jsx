@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
 import Footer from '../Footer/Footer';
-import FinishOrder from './FinishOrder';
+import FinishOrder from './FinishOrderForm';
 import SeatButton from './SeatButton';
 import './Seats.scss';
 
