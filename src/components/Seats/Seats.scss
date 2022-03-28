@@ -54,14 +54,22 @@
 			align-self: flex-start;
 		}
 
-		label {
+		.BuyerInfo-wrapper {
 			width: 100%;
+			@include _.flex($direction: column);
+			border-radius: 12px;
+			padding: 10px 0;
+			margin: 5px 0;
+
+			h3 {
+				margin-bottom: 4px;
+			}
 		}
 
 		input {
 			@include _.w-h(100%, 7vh);
-			margin-bottom: 5px;
-			padding: 0 5px;
+			margin-bottom: 10px;
+
 			border: 1px solid _.$text--dark;
 			border-radius: 5px;
 
@@ -73,6 +81,21 @@
 					transform: scale(1.01);
 				}
 			}
+		}
+	}
+
+	&.theme-dark {
+		.BuyerInfo-wrapper {
+			background: darken(_.$seat-selected, 20);
+			color: #000;
+			border: 1px solid black;
+		}
+	}
+
+	&.theme-light {
+		.BuyerInfo-wrapper {
+			background: _.$seat-selected;
+			border: 1px solid _.$seat-available;
 		}
 	}
 }
