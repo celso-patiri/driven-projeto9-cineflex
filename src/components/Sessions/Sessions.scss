@@ -28,7 +28,7 @@ main.sessions {
 	}
 }
 
-@media (min-width: 400px) {
+@media (max-width: 500px) {
 	main.sessions {
 		padding-bottom: calc(_.$footer-height + 1vh);
 	}

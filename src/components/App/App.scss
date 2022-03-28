@@ -6,12 +6,6 @@
 	height: 100vh;
 	@include _.scroll-bar;
 
-	@media (min-width: 430px) {
-		border-radius: 15px;
-		border: none;
-		overflow-x: hidden;
-	}
-
 	.title {
 		margin-top: clamp(30px, 10vh, 50px);
 	}
@@ -43,5 +37,18 @@ header {
 		transform: scale(2);
 		color: darken(_.$text--dark, 20);
 		cursor: pointer;
+	}
+}
+
+@media (max-width: 500px) {
+	.App {
+		width: 100vw;
+		border-radius: 15px;
+		border: none;
+		overflow-x: hidden;
+	}
+
+	header {
+		width: 100vw;
 	}
 }
