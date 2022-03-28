@@ -4,7 +4,9 @@ export default function BuyerInfoInput({ id, orderInfo, setOrderInfo }) {
 	if (!buyer) return '';
 	return (
 		<div className="BuyerInfo-wrapper">
-			<h3>Assento {buyer.seatNumber}</h3>
+			<div className="BuyerInfo-title">
+				<h3>Assento {buyer.seatNumber}</h3>
+			</div>
 			<label>
 				<p>Nome do comprador</p>
 				<input

@@ -27,3 +27,9 @@ main.sessions {
 		}
 	}
 }
+
+@media (min-width: 400px) {
+	main.sessions {
+		padding-bottom: calc(_.$footer-height + 1vh);
+	}
+}

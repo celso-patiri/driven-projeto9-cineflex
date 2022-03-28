@@ -52,17 +52,28 @@
 
 		p {
 			align-self: flex-start;
+			margin-bottom: 5px;
 		}
 
 		.BuyerInfo-wrapper {
 			width: 100%;
 			@include _.flex($direction: column);
 			border-radius: 12px;
-			padding: 10px 0;
+
 			margin: 5px 0;
 
 			h3 {
 				margin-bottom: 4px;
+			}
+
+			.BuyerInfo-title {
+				@include _.flex;
+				width: 100%;
+				background-color: _.$seat-selected;
+				padding: 10px 0;
+				margin-bottom: 10px;
+				border-top-left-radius: 12px;
+				border-top-right-radius: 12px;
 			}
 		}
 
@@ -86,16 +97,26 @@
 
 	&.theme-dark {
 		.BuyerInfo-wrapper {
-			background: darken(_.$seat-selected, 20);
+			background: lighten(_.$bg--dark, 30);
 			color: #000;
 			border: 1px solid black;
+
+			p {
+				color: darken(_.$text--dark, 10);
+			}
 		}
 	}
 
 	&.theme-light {
 		.BuyerInfo-wrapper {
-			background: _.$seat-selected;
+			background: darken(_.$bg--light, 10);
 			border: 1px solid _.$seat-available;
 		}
+	}
+}
+
+@media (min-width: 400px) {
+	.Seats {
+		padding-bottom: calc(_.$footer-height + 1vh);
 	}
 }
